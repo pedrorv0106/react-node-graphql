@@ -1,0 +1,34 @@
+type User {
+  id: ID!
+  spotifyId: String
+  nickname: String
+  name: String
+  email: String
+  avatar: String
+  points: Int
+  userId: String
+  password: String
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type AuthAdmin {
+  success: Boolean!
+  user: User
+  token: String!
+  message: String
+}
+
+type Query {
+  me: User
+}
+
+type Mutation {
+  login(spotifyId: String!, nickname: String!, name: String!, email: String!, avatar: String!): AuthPayload!
+  updateUser(spotifyId: String!, avatar: String!): Boolean
+  adminLogin(userId: String!, password: String!): AuthAdmin!
+  adminUpdate(name: String!, spotifyId: String!, userId: String!): Boolean
+}

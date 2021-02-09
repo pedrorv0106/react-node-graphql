@@ -1,0 +1,7 @@
+*.env
+*.log
+*.sample
+*.lock
+*.gitignore
+package-lock.json
+client/build/

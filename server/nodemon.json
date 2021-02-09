@@ -1,0 +1,6 @@
+{
+  "watch": ["src/**/*"],
+  "ext": "js,graphql",
+  "ignore": ["src/**/*.test.js"],
+  "exec": "node ./bin/start.js"
+}

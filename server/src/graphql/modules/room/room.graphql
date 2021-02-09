@@ -1,0 +1,43 @@
+type Room {
+  id: ID!
+  name: String!
+  messages: [Message]!
+  people: [User]!
+  djs: [User]!
+}
+
+type RoomItem {
+  id: ID!
+  name: String!
+  people: Int!
+  previewUrl: String
+}
+
+type People {
+  list(offset: Int, limit: Int): [User]!
+  count: Int
+}
+
+type DJ {
+  user: User!
+  waiting: Boolean
+}
+
+type Message {
+  id: ID!
+  from: ID!
+  content: String!
+}
+
+extend type Query {
+  rooms: [RoomItem]!
+  room(roomId: ID!): Room
+}
+
+extend type Mutation {
+  sendMessage(roomId: ID!, content: String!): Message
+}
+
+type Subscription {
+  messageAdded(roomId: ID!): Message
+}

@@ -1,0 +1,23 @@
+{
+  "name": "livejam-next",
+  "version": "2.0.0",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.20.3",
+    "husky": ">=4",
+    "lint-staged": ">=10",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  }
+}
